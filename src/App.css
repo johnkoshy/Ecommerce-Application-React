@@ -1,3 +1,4 @@
+/* Existing App.css content */
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
 .sidebar {
@@ -7,13 +8,14 @@
 .navbar {
   z-index: 10000;
 }
-@media  screen and (max-width:800px) {
-  .sidebar{
+@media screen and (max-width: 800px) {
+  .sidebar {
     z-index: 10000000;
   }
 }
 
-.e-dlg-center-center, .e-quick-popup-wrapper.e-device{
+.e-dlg-center-center,
+.e-quick-popup-wrapper.e-device {
   z-index: 1000000 !important;
 }
 
@@ -28,9 +30,8 @@
   background-color: transparent;
 }
 
-/* color-picker style  */
-
- #preview {
+/* color-picker style */
+#preview {
   background: transparent
     url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
     no-repeat;
@@ -42,6 +43,48 @@
   background-color: #008000;
 }
 
-.e-input-group:not(.e-float-icon-left), .e-input-group.e-success:not(.e-float-icon-left), .e-input-group.e-warning:not(.e-float-icon-left), .e-input-group.e-error:not(.e-float-icon-left), .e-input-group.e-control-wrapper:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left){
+.e-input-group:not(.e-float-icon-left),
+.e-input-group.e-success:not(.e-float-icon-left),
+.e-input-group.e-warning:not(.e-float-icon-left),
+.e-input-group.e-error:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
   border: none;
+}
+
+/* New styles for Navbar */
+.profile-button {
+  transition: transform 0.3s ease;
+}
+
+.profile-button.active {
+  transform: translateX(-20px); /* Button moves left when UserProfile is open */
+}
+
+.user-profile-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 300px;
+  background: #fff;
+  z-index: 10001; /* Above navbar */
+  transform: translateX(100%); /* Hidden by default */
+  transition: transform 0.3s ease;
+}
+
+.user-profile-panel.open {
+  transform: translateX(0); /* Slide in when open */
+}
+
+.user-profile-panel .close-btn {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background: #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10002;
 }
