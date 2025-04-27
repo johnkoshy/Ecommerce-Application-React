@@ -30,7 +30,6 @@
   background-color: transparent;
 }
 
-/* color-picker style */
 #preview {
   background: transparent
     url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
@@ -54,13 +53,12 @@
   border: none;
 }
 
-/* New styles for Navbar */
 .profile-button {
   transition: transform 0.3s ease;
 }
 
 .profile-button.active {
-  transform: translateX(-20px); /* Button moves left when UserProfile is open */
+  transform: translateX(-20px);
 }
 
 .user-profile-panel {
@@ -70,16 +68,16 @@
   height: 100%;
   width: 300px;
   background: #fff;
-  z-index: 10001; /* Above navbar */
-  transform: translateX(100%); /* Hidden by default */
+  z-index: 10001;
+  transform: translateX(100%);
   transition: transform 0.3s ease;
 }
 
 .user-profile-panel.open {
-  transform: translateX(0); /* Slide in when open */
+  transform: translateX(0);
 }
 
-.user-profile-panel .close-btn {
+.close-btn {
   margin: 1rem;
   padding: 0.5rem 1rem;
   background: #e0e0e0;
@@ -87,4 +85,51 @@
   cursor: pointer;
   position: relative;
   z-index: 10002;
+}
+
+/* New styles for dashboard cards */
+.dashboard-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.75rem; /* Matches gap-3 */
+  overflow-x: auto; /* Scroll if needed */
+  padding: 0.75rem;
+}
+
+.earning-card {
+  flex: 0 0 256px; /* Matches lg:w-64 */
+  min-width: 256px;
+  background: #fff;
+  border-radius: 0.75rem; /* Matches rounded-xl */
+  padding: 2rem 1.5rem 1.5rem 1.5rem; /* Matches p-8 pt-9 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.customers-card,
+.products-card,
+.sales-card,
+.refunds-card {
+  flex: 0 0 192px; /* Matches w-48 */
+  min-width: 192px;
+  background: #fff;
+  border-radius: 0.5rem; /* Matches rounded-2xl */
+  padding: 1rem; /* Matches p-4 pt-9 */
+  padding-top: 2.25rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 800px) {
+  .dashboard-cards {
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+  }
+  .earning-card {
+    flex: 0 0 100%; /* Full width on small screens */
+  }
+  .customers-card,
+  .products-card,
+  .sales-card,
+  .refunds-card {
+    flex: 0 0 45%; /* Two cards per row on small screens */
+  }
 }
