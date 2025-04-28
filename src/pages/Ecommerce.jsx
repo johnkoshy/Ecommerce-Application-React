@@ -25,11 +25,9 @@ const Ecommerce = () => {
 
   return (
     <div className="mt-12">
-      <div className="flex flex-nowrap justify-center gap-3">
+      <div className="dashboard-cards">
         {/* Earning Card */}
-        <div
-          className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-64 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center"
-        >
+        <div className="earning-card dark:text-gray-200 dark:bg-secondary-dark-bg h-44">
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Earning</p>
@@ -52,7 +50,11 @@ const Ecommerce = () => {
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg w-48 p-4 pt-9 rounded-2xl"
+              className={`${
+                item.title === 'Customers' ? 'customers-card' :
+                item.title === 'Products' ? 'products-card' :
+                item.title === 'Sales' ? 'sales-card' : 'refunds-card'
+              } dark:text-gray-200 dark:bg-secondary-dark-bg w-48 p-4 pt-9 rounded-2xl`}
             >
               <button
                 type="button"

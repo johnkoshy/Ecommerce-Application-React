@@ -2,12 +2,21 @@
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
 .sidebar {
-  box-shadow: rgb(113 122 131 / 11%) 0px 7px 30px 0px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent for glass effect */
+  backdrop-filter: blur(8px); /* Frosted glass */
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
+
 .nav-item,
 .navbar {
   z-index: 10000;
+  background: rgba(255, 255, 255, 0.1); /* Glassy navbar */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
+
 @media screen and (max-width: 800px) {
   .sidebar {
     z-index: 10000000;
@@ -23,11 +32,11 @@
   width: 6px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(216, 216, 216);
+  background: linear-gradient(45deg, #888, #ccc); /* Glossy scrollbar */
   border-radius: 40px;
 }
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background: transparent;
 }
 
 #preview {
@@ -39,7 +48,7 @@
   margin: 10px 0;
   min-width: 300px;
   max-width: 600px;
-  background-color: #008000;
+  background: linear-gradient(45deg, #008000, #00a000); /* Glossy green */
 }
 
 .e-input-group:not(.e-float-icon-left),
@@ -54,11 +63,15 @@
 }
 
 .profile-button {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
 }
 
 .profile-button.active {
   transform: translateX(-20px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .user-profile-panel {
@@ -67,69 +80,149 @@
   right: 0;
   height: 100%;
   width: 300px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.1); /* Glassy panel */
+  backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
   z-index: 10001;
   transform: translateX(100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .user-profile-panel.open {
   transform: translateX(0);
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .close-btn {
   margin: 1rem;
   padding: 0.5rem 1rem;
-  background: #e0e0e0;
-  border-radius: 5px;
+  background: linear-gradient(45deg, #e0e0e0, #ffffff); /* Glossy button */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
   cursor: pointer;
   position: relative;
   z-index: 10002;
+  transition: all 0.3s ease;
 }
 
-/* New styles for dashboard cards */
+.close-btn:hover {
+  background: linear-gradient(45deg, #ffffff, #e0e0e0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Dashboard Cards */
 .dashboard-cards {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.75rem; /* Matches gap-3 */
-  overflow-x: auto; /* Scroll if needed */
+  gap: 0.75rem;
+  overflow-x: auto;
   padding: 0.75rem;
 }
 
 .earning-card {
-  flex: 0 0 256px; /* Matches lg:w-64 */
+  flex: 0 0 256px;
   min-width: 256px;
-  background: #fff;
-  border-radius: 0.75rem; /* Matches rounded-xl */
-  padding: 2rem 1.5rem 1.5rem 1.5rem; /* Matches p-8 pt-9 */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.2); /* Glassmorphism */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px; /* Softer corners */
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.earning-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .customers-card,
 .products-card,
 .sales-card,
 .refunds-card {
-  flex: 0 0 192px; /* Matches w-48 */
+  flex: 0 0 192px;
   min-width: 192px;
-  background: #fff;
-  border-radius: 0.5rem; /* Matches rounded-2xl */
-  padding: 1rem; /* Matches p-4 pt-9 */
+  background: rgba(255, 255, 255, 0.2); /* Glassmorphism */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 1rem;
   padding-top: 2.25rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.customers-card:hover,
+.products-card:hover,
+.sales-card:hover,
+.refunds-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Button in Cards */
+.earning-card button,
+.customers-card button,
+.products-card button,
+.sales-card button,
+.refunds-card button {
+  background: linear-gradient(45deg, #4a90e2, #50e3c2); /* Glossy gradient */
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.earning-card button:hover,
+.customers-card button:hover,
+.products-card button:hover,
+.sales-card button:hover,
+.refunds-card button:hover {
+  background: linear-gradient(45deg, #50e3c2, #4a90e2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Download Button */
+button[style*="bgColor"] {
+  background: linear-gradient(45deg, var(--bgColor), #ffffff); /* Use context color */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+button[style*="bgColor"]:hover {
+  background: linear-gradient(45deg, #ffffff, var(--bgColor));
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 800px) {
   .dashboard-cards {
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    flex-wrap: wrap;
   }
   .earning-card {
-    flex: 0 0 100%; /* Full width on small screens */
+    flex: 0 0 100%;
   }
   .customers-card,
   .products-card,
   .sales-card,
   .refunds-card {
-    flex: 0 0 45%; /* Two cards per row on small screens */
+    flex: 0 0 45%;
   }
+}
+
+/* Dark Mode Adjustments */
+.dark .sidebar,
+.dark .navbar,
+.dark .earning-card,
+.dark .customers-card,
+.dark .products-card,
+.dark .sales-card,
+.dark .refunds-card,
+.dark .user-profile-panel {
+  background: rgba(0, 0, 0, 0.3); /* Darker glass for dark mode */
+  border-color: rgba(255, 255, 255, 0.1);
 }

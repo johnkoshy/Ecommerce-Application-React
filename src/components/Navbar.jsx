@@ -15,7 +15,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       type="button"
       onClick={customFunc}
       style={{ color }}
-      className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+      className="relative text-xl rounded-full p-3 hover:bg-light-gray bg-gradient-to-r from-gray-100 to-gray-200"
     >
       <span
         style={{ background: dotColor }}
@@ -61,7 +61,6 @@ const Navbar = () => {
         color={currentColor}
         icon={<AiOutlineMenu />}
       />
-
       <div className="flex">
         <NavButton
           title="Cart"
@@ -98,24 +97,18 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
-
-        {/* UserProfile Panel */}
         {isClicked.userProfile && (
           <div className={`user-profile-panel ${isClicked.userProfile ? 'open' : ''}`}>
             <button
-  type="button"
-  className="close-btn"
-  onClick={() => {
-    console.log('Close button clicked');
-    handleClick('userProfile');
-  }}
->
-  Close
-</button>
+              type="button"
+              className="close-btn"
+              onClick={() => handleClick('userProfile')}
+            >
+              Close
+            </button>
             <UserProfile />
           </div>
         )}
-
         {isClicked.cart && <Cart />}
         {isClicked.chat && <Chat />}
         {isClicked.notification && <Notification />}
