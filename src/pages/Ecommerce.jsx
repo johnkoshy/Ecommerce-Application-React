@@ -26,7 +26,6 @@ const Ecommerce = () => {
   return (
     <div className="mt-12">
       <div className="dashboard-cards">
-        {/* Earning Card */}
         <div className="earning-card dark:text-gray-200 dark:bg-secondary-dark-bg h-44">
           <div className="flex justify-between items-center">
             <div>
@@ -44,8 +43,6 @@ const Ecommerce = () => {
             />
           </div>
         </div>
-
-        {/* Customers, Products, Sales, Refunds Cards */}
         <div className="flex flex-nowrap justify-center gap-3 items-center m-3">
           {earningData.map((item) => (
             <div
@@ -74,8 +71,6 @@ const Ecommerce = () => {
           ))}
         </div>
       </div>
-
-      {/* Revenue Updates Section */}
       <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 rounded-2xl md:w-780">
           <div className="flex justify-between">
