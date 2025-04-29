@@ -1,19 +1,31 @@
+/* Existing App.css content */
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
 .sidebar {
-  box-shadow: rgb(113 122 131 / 11%) 0px 7px 30px 0px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
+
 .nav-item,
 .navbar {
   z-index: 10000;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
-@media  screen and (max-width:800px) {
-  .sidebar{
+
+@media screen and (max-width: 800px) {
+  .sidebar {
     z-index: 10000000;
   }
 }
 
-.e-dlg-center-center, .e-quick-popup-wrapper.e-device{
+.e-dlg-center-center,
+.e-quick-popup-wrapper.e-device {
   z-index: 1000000 !important;
 }
 
@@ -21,16 +33,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(216, 216, 216);
+  background: linear-gradient(45deg, #888, #ccc);
   border-radius: 40px;
 }
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background: transparent;
 }
 
-/* color-picker style  */
-
- #preview {
+#preview {
   background: transparent
     url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
     no-repeat;
@@ -39,9 +49,229 @@
   margin: 10px 0;
   min-width: 300px;
   max-width: 600px;
-  background-color: #008000;
+  background: linear-gradient(45deg, #008000, #00a000);
 }
 
-.e-input-group:not(.e-float-icon-left), .e-input-group.e-success:not(.e-float-icon-left), .e-input-group.e-warning:not(.e-float-icon-left), .e-input-group.e-error:not(.e-float-icon-left), .e-input-group.e-control-wrapper:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left){
+.e-input-group:not(.e-float-icon-left),
+.e-input-group.e-success:not(.e-float-icon-left),
+.e-input-group.e-warning:not(.e-float-icon-left),
+.e-input-group.e-error:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
   border: none;
+}
+
+.profile-button {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+}
+
+.profile-button.active {
+  transform: translateX(-20px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.user-profile-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 10010;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-profile-panel.open {
+  transform: translateX(0);
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.close-btn {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(45deg, #e0e0e0, #ffffff);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10011;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: linear-gradient(45deg, #ffffff, #e0e0e0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.dashboard-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.75rem;
+  z-index: 100;
+}
+
+.earning-card {
+  flex: 0 0 256px;
+  min-width: 256px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 100;
+}
+
+.earning-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.customers-card,
+.products-card,
+.sales-card,
+.refunds-card {
+  flex: 0 0 192px;
+  min-width: 192px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 1rem;
+  padding-top: 2.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 100;
+}
+
+.customers-card:hover,
+.products-card:hover,
+.sales-card:hover,
+.refunds-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.earning-card button,
+.customers-card button,
+.products-card button,
+.sales-card button,
+.refunds-card button {
+  background: linear-gradient(45deg, #4a90e2, #50e3c2);
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.earning-card button:hover,
+.customers-card button:hover,
+.products-card button:hover,
+.sales-card button:hover,
+.refunds-card button:hover {
+  background: linear-gradient(45deg, #50e3c2, #4a90e2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+button[style*="bgColor"] {
+  background: linear-gradient(45deg, var(--bgColor), #ffffff);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+button[style*="bgColor"]:hover {
+  background: linear-gradient(45deg, #ffffff, var(--bgColor));
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard-cards {
+    flex-wrap: wrap;
+  }
+  .earning-card {
+    flex: 0 0 100%;
+  }
+  .customers-card,
+  .products-card,
+  .sales-card,
+  .refunds-card {
+    flex: 0 0 45%;
+  }
+}
+
+.dark .sidebar,
+.dark .navbar,
+.dark .earning-card,
+.dark .customers-card,
+.dark .products-card,
+.dark .sales-card,
+.dark .refunds-card,
+.dark .user-profile-panel {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* New styles for Cart, Chat, Notification panels */
+.cart-panel,
+.chat-panel,
+.notification-panel {
+  position: fixed;
+  top: 60px; /* Below navbar */
+  right: 0;
+  width: 300px;
+  max-height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 10005; /* Below user-profile-panel, above dashboard cards */
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.cart-panel.open,
+.chat-panel.open,
+.notification-panel.open {
+  transform: translateX(0);
+}
+
+/* Offset panels when multiple are open */
+.cart-panel.open:nth-child(1),
+.chat-panel.open:nth-child(2),
+.notification-panel.open:nth-child(3) {
+  transform: translateX(0) translateY(calc(10px + 410px * (var(--panel-index, 0))));
+  --panel-index: 0;
+}
+
+.chat-panel.open:nth-child(2) {
+  --panel-index: 1;
+}
+
+.notification-panel.open:nth-child(3) {
+  --panel-index: 2;
+}
+
+.dark .cart-panel,
+.dark .chat-panel,
+.dark .notification-panel {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
 }

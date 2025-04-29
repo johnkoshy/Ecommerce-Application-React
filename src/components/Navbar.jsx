@@ -97,21 +97,37 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
-        {isClicked.userProfile && (
-          <div className={`user-profile-panel ${isClicked.userProfile ? 'open' : ''}`}>
-            <button
-              type="button"
-              className="close-btn"
-              onClick={() => handleClick('userProfile')}
-            >
-              Close
-            </button>
-            <UserProfile />
-          </div>
-        )}
-        {isClicked.cart && <Cart />}
-        {isClicked.chat && <Chat />}
-        {isClicked.notification && <Notification />}
+
+        {/* Panels Container */}
+        <div className="panels-container">
+          {isClicked.cart && (
+            <div className={`cart-panel ${isClicked.cart ? 'open' : ''}`}>
+              <Cart />
+            </div>
+          )}
+          {isClicked.chat && (
+            <div className={`chat-panel ${isClicked.chat ? 'open' : ''}`}>
+              <Chat />
+            </div>
+          )}
+          {isClicked.notification && (
+            <div className={`notification-panel ${isClicked.notification ? 'open' : ''}`}>
+              <Notification />
+            </div>
+          )}
+          {isClicked.userProfile && (
+            <div className={`user-profile-panel ${isClicked.userProfile ? 'open' : ''}`}>
+              <button
+                type="button"
+                className="close-btn"
+                onClick={() => handleClick('userProfile')}
+              >
+                Close
+              </button>
+              <UserProfile />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
