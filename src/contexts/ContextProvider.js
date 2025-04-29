@@ -14,6 +14,8 @@ export const ContextProvider = ({ children }) => {
   const [currentColor, setCurrentColor] = useState('#03C9D7');
   const [currentMode, setCurrentMode] = useState('Light');
   const [themeSettings, setThemeSettings] = useState(false);
+  const [hasNewMessages, setHasNewMessages] = useState(false); // New state for chat
+  const [hasNewNotifications, setHasNewNotifications] = useState(false); // New state for notifications
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -52,6 +54,10 @@ export const ContextProvider = ({ children }) => {
         setThemeSettings,
         setMode,
         setColor,
+        hasNewMessages,
+        setHasNewMessages,
+        hasNewNotifications,
+        setHasNewNotifications,
       }}
     >
       {children}

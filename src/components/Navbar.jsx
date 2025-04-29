@@ -10,7 +10,7 @@ import { Cart, Chat, Notification, UserProfile } from '.';
 import PanelPortal from './PanelPortal';
 import { useStateContext } from '../contexts/ContextProvider';
 
-const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
+const NavButton = ({ title, customFunc, icon, color, dotColor, showDot }) => (
   <TooltipComponent content={title} position="BottomCenter">
     <button
       type="button"
@@ -18,10 +18,12 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       style={{ color }}
       className="relative text-xl rounded-full p-3 hover:bg-light-gray bg-gradient-to-r from-gray-100 to-gray-200"
     >
-      <span
-        style={{ background: dotColor }}
-        className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
-      />
+      {showDot && (
+        <span
+          style={{ background: dotColor }}
+          className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
+        />
+      )}
       {icon}
     </button>
   </TooltipComponent>
@@ -37,6 +39,8 @@ const Navbar = () => {
     screenSize,
     setScreenSize,
     currentColor,
+    hasNewMessages,
+    hasNewNotifications,
   } = useStateContext();
 
   useEffect(() => {
@@ -72,17 +76,19 @@ const Navbar = () => {
           />
           <NavButton
             title="Chat"
-            dotColor="#03C9D7"
             customFunc={() => handleClick('chat')}
             color={currentColor}
             icon={<BsChatLeft />}
+            dotColor="#03C9D7"
+            showDot={hasNewMessages}
           />
           <NavButton
             title="Notifications"
-            dotColor="#03C9D7"
             customFunc={() => handleClick('notification')}
             color={currentColor}
             icon={<RiNotification3Line />}
+            dotColor="#03C9D7"
+            showDot={hasNewNotifications}
           />
           <TooltipComponent content="Profile" position="BottomCenter">
             <div

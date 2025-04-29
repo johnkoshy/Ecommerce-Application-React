@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Notification = () => {
+  const { setHasNewNotifications } = useStateContext();
   const notifications = []; // Placeholder; replace with actual data
+
+  useEffect(() => {
+    // Update context based on notifications
+    setHasNewNotifications(notifications.length > 0);
+  }, [notifications, setHasNewNotifications]);
 
   return (
     <div className="flex flex-col gap-4">

@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Chat = () => {
+  const { setHasNewMessages } = useStateContext();
   const messages = []; // Placeholder; replace with actual data
+
+  useEffect(() => {
+    // Update context based on messages
+    setHasNewMessages(messages.length > 0);
+  }, [messages, setHasNewMessages]);
 
   return (
     <div className="flex flex-col gap-4">
