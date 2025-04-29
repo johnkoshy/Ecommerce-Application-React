@@ -26,12 +26,12 @@ export const ContextProvider = ({ children }) => {
   };
 
   const handleClick = (clicked) => {
-    setIsClicked((prev) => ({
-      cart: clicked === 'cart' ? !prev.cart : false,
-      chat: clicked === 'chat' ? !prev.chat : false,
-      notification: clicked === 'notification' ? !prev.notification : false,
-      userProfile: clicked === 'userProfile' ? !prev.userProfile : false,
-    }));
+    setIsClicked({
+      cart: clicked === 'cart' ? !isClicked.cart : false,
+      chat: clicked === 'chat' ? !isClicked.chat : false,
+      notification: clicked === 'notification' ? !isClicked.notification : false,
+      userProfile: clicked === 'userProfile' ? !isClicked.userProfile : false,
+    });
   };
 
   return (

@@ -1,18 +1,21 @@
 import React from 'react';
 
 const Chat = () => {
-  // Placeholder for chat messages; replace with actual data/logic if available
-  const messages = []; // Example: empty chat
+  const messages = []; // Placeholder; replace with actual data
 
   return (
-    <div className="chat-panel">
-      <h2 className="text-xl font-semibold mb-4">Chat</h2>
+    <div className="flex flex-col gap-4">
+      <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+        Chat
+      </h2>
       {messages.length === 0 ? (
-        <p className="text-gray-500">No messages</p>
+        <p className="text-gray-500 dark:text-gray-400">
+          No messages
+        </p>
       ) : (
-        <ul>
+        <ul className="space-y-2">
           {messages.map((msg, index) => (
-            <li key={index} className="mb-2">
+            <li key={index} className="text-gray-800 dark:text-gray-200">
               {msg.sender}: {msg.text}
             </li>
           ))}

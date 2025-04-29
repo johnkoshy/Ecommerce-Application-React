@@ -1,18 +1,21 @@
 import React from 'react';
 
 const Cart = () => {
-  // Placeholder for cart items; replace with actual data/logic if available
-  const cartItems = []; // Example: empty cart
+  const cartItems = []; // Placeholder; replace with actual data
 
   return (
-    <div className="cart-panel">
-      <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
+    <div className="flex flex-col gap-4">
+      <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+        Shopping Cart
+      </h2>
       {cartItems.length === 0 ? (
-        <p className="text-gray-500">No items in cart</p>
+        <p className="text-gray-500 dark:text-gray-400">
+          No items in cart
+        </p>
       ) : (
-        <ul>
+        <ul className="space-y-2">
           {cartItems.map((item, index) => (
-            <li key={index} className="mb-2">
+            <li key={index} className="text-gray-800 dark:text-gray-200">
               {item.name} - ${item.price}
             </li>
           ))}
