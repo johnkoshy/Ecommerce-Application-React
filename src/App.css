@@ -1,44 +1,86 @@
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
-.sidebar {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  z-index: 1000;
+/* Global background with gradient */
+body {
+  background: linear-gradient(135deg, #A8E6CF 0%, #D7BDE2 100%);
+  min-height: 100vh;
+  margin: 0;
 }
 
+.dark body {
+  background: linear-gradient(135deg, #2D2D2D 0%, #4B0082 100%);
+}
+
+/* Sidebar with glass effect and pastel border */
+.sidebar {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border-image: linear-gradient(45deg, #00C4B4, #FF6B6B) 1;
+}
+
+/* Navbar with gradient and glass effect */
 .nav-item,
 .navbar {
   z-index: 5000;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(45deg, rgba(75, 0, 130, 0.2), rgba(0, 196, 180, 0.2));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* NavButton with glossy effect */
+.navbar button {
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.navbar button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5));
+}
+
+/* Notification dot */
+.navbar button span {
+  transition: all 0.3s ease;
+}
+
+.navbar button:hover span {
+  box-shadow: 0 0 8px rgba(3, 201, 215, 0.8);
+}
+
+/* Responsive sidebar */
 @media screen and (max-width: 800px) {
   .sidebar {
     z-index: 10000000;
   }
 }
 
+/* Syncfusion overrides */
 .e-dlg-center-center,
 .e-quick-popup-wrapper.e-device {
   z-index: 1000000 !important;
 }
 
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #888, #ccc);
+  background: linear-gradient(45deg, #00C4B4, #FF6B6B);
   border-radius: 40px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
+/* Color picker preview */
 #preview {
   background: transparent
     url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
@@ -48,9 +90,10 @@
   margin: 10px 0;
   min-width: 300px;
   max-width: 600px;
-  background: linear-gradient(45deg, #008000, #00a000);
+  background: linear-gradient(45deg, #00C4B4, #FF6B6B);
 }
 
+/* Input group styling */
 .e-input-group:not(.e-float-icon-left),
 .e-input-group.e-success:not(.e-float-icon-left),
 .e-input-group.e-warning:not(.e-float-icon-left),
@@ -62,22 +105,27 @@
   border: none;
 }
 
+/* Profile button with glossy effect */
 .profile-button {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 12px;
 }
 
 .profile-button.active {
   transform: translateX(-20px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.4));
 }
 
+/* Panel container */
 .panel-container {
-  z-index: 999999; /* Extremely high to override Syncfusion */
+  z-index: 999999;
 }
 
+/* Panels with enhanced glass effect and entrance animation */
 .user-profile-panel,
 .cart-panel,
 .chat-panel,
@@ -87,17 +135,19 @@
   right: 0;
   height: 100%;
   width: 300px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 999999; /* Extremely high to ensure above cards */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 999999;
   transform: translateX(100%);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  isolation: isolate; /* New stacking context */
+  isolation: isolate;
+  opacity: 0;
+  border-image: linear-gradient(45deg, #FF6B6B, #00C4B4) 1;
 }
 
 .user-profile-panel.open,
@@ -105,52 +155,69 @@
 .chat-panel.open,
 .notification-panel.open {
   transform: translateX(0);
-  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+  opacity: 1;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Close button with vibrant gradient */
 .close-btn {
   width: 100%;
   padding: 0.75rem 1rem;
-  background: linear-gradient(45deg, #e0e0e0, #ffffff);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, #FF6B6B, #00C4B4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
   font-size: 1rem;
-  z-index: 9999999; /* Above panel */
+  color: #FFFFFF;
+  z-index: 9999999;
   transition: all 0.3s ease;
 }
 
 .close-btn:hover {
-  background: linear-gradient(45deg, #ffffff, #e0e0e0);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, #00C4B4, #FF6B6B);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
 
+/* Dashboard cards with glass effect and vibrant headers */
 .dashboard-cards {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.75rem;
+  gap: 1rem;
   overflow-x: auto;
-  padding: 0.75rem;
-  z-index: 10; /* Lowered to ensure below panels */
+  padding: 1rem;
+  z-index: 10;
 }
 
 .earning-card {
   flex: 0 0 256px;
   min-width: 256px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   padding: 2rem 1.5rem 1.5rem 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 10;
+  position: relative;
+  overflow: hidden;
+}
+
+.earning-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4B0082, #00C4B4);
 }
 
 .earning-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 .customers-card,
@@ -159,14 +226,30 @@
 .refunds-card {
   flex: 0 0 192px;
   min-width: 192px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   padding: 1rem;
   padding-top: 2.25rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 10;
+  position: relative;
+  overflow: hidden;
+}
+
+.customers-card::before,
+.products-card::before,
+.sales-card::before,
+.refunds-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B6B, #D7BDE2);
 }
 
 .customers-card:hover,
@@ -174,18 +257,20 @@
 .sales-card:hover,
 .refunds-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* Card buttons with glossy gradient */
 .earning-card button,
 .customers-card button,
 .products-card button,
 .sales-card button,
 .refunds-card button {
-  background: linear-gradient(45deg, #4a90e2, #50e3c2);
+  background: linear-gradient(45deg, #4B0082, #00C4B4);
   border: none;
   border-radius: 12px;
   padding: 0.75rem;
+  color: #FFFFFF;
   transition: all 0.3s ease;
 }
 
@@ -194,24 +279,27 @@
 .products-card button:hover,
 .sales-card button:hover,
 .refunds-card button:hover {
-  background: linear-gradient(45deg, #50e3c2, #4a90e2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, #00C4B4, #4B0082);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transform: scale(1.05);
 }
 
+/* Custom buttons with bgColor */
 button[style*="bgColor"] {
-  background: linear-gradient(45deg, var(--bgColor), #ffffff);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, var(--bgColor), #FFFFFF);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
+  color: #FFFFFF;
   transition: all 0.3s ease;
 }
 
 button[style*="bgColor"]:hover {
-  background: linear-gradient(45deg, #ffffff, var(--bgColor));
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, #FFFFFF, var(--bgColor));
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
 
+/* Responsive adjustments */
 @media screen and (max-width: 800px) {
   .dashboard-cards {
     flex-wrap: wrap;
@@ -234,6 +322,7 @@ button[style*="bgColor"]:hover {
   }
 }
 
+/* Dark mode adjustments */
 .dark .sidebar,
 .dark .navbar,
 .dark .earning-card,
@@ -245,6 +334,35 @@ button[style*="bgColor"]:hover {
 .dark .cart-panel,
 .dark .chat-panel,
 .dark .notification-panel {
-  background: rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .close-btn,
+.dark .earning-card button,
+.dark .customers-card button,
+.dark .products-card button,
+.dark .sales-card button,
+.dark .refunds-card button {
+  background: linear-gradient(45deg, #FF6B6B, #4B0082);
+}
+
+.dark .close-btn:hover,
+.dark .earning-card button:hover,
+.dark .customers-card button:hover,
+.dark .products-card button:hover,
+.dark .sales-card button:hover,
+.dark .refunds-card button:hover {
+  background: linear-gradient(45deg, #4B0082, #FF6B6B);
+}
+
+.dark .earning-card::before {
+  background: linear-gradient(90deg, #4B0082, #FF6B6B);
+}
+
+.dark .customers-card::before,
+.dark .products-card::before,
+.dark .sales-card::before,
+.dark .refunds-card::before {
+  background: linear-gradient(90deg, #00C4B4, #D7BDE2);
 }
