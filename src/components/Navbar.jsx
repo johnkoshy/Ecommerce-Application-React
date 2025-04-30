@@ -60,14 +60,14 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between p-2 md:mx-6 relative navbar">
+      <div className="flex justify-between p-2 relative navbar">
         <NavButton
           title="Menu"
           customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
           color={currentColor}
           icon={<AiOutlineMenu />}
         />
-        <div className="flex">
+        <div className="flex gap-3">
           <NavButton
             title="Cart"
             customFunc={() => handleClick('cart')}
@@ -92,12 +92,12 @@ const Navbar = () => {
           />
           <TooltipComponent content="Profile" position="BottomCenter">
             <div
-              className={`flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg profile-button ${
+              className={`flex items-center gap-2 cursor-pointer p-2 hover:bg-light-gray rounded-lg profile-button ${
                 isClicked.userProfile ? 'active' : ''
               }`}
               onClick={() => handleClick('userProfile')}
             >
-              <img className="rounded-full w-8 h-8" src={avatar} />
+              <img className="rounded-full w-8 h-8" src={avatar} alt="profile" />
               <p>
                 <span className="text-gray-400 text-14">Hello, </span>
                 <span className="text-gray-400 font-bold ml-1 text-14">John 👋</span>

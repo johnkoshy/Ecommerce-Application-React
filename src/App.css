@@ -38,6 +38,7 @@ body {
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
+  margin-right: 0.5rem; /* Fallback spacing if Tailwind gap-4 is unavailable */
 }
 
 .navbar button:hover {
@@ -105,19 +106,32 @@ body {
   border: none;
 }
 
-/* Profile button with glossy effect */
+/* Profile button with enhanced clarity */
 .profile-button {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.35));
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Stronger border */
   border-radius: 12px;
+  padding: 0.5rem 1rem; /* Increased padding for right side */
+  margin-right: 1rem; /* Extra margin to prevent clipping */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .profile-button.active {
   transform: translateX(-20px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.4));
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.45));
+}
+
+.profile-button img {
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Border for avatar clarity */
+}
+
+.profile-button p {
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Panel container */
@@ -319,6 +333,9 @@ button[style*="bgColor"]:hover {
   .notification-panel {
     width: 100%;
     max-width: 300px;
+  }
+  .profile-button {
+    margin-right: 0.5rem; /* Reduced margin for smaller screens */
   }
 }
 
