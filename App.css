@@ -1,57 +1,64 @@
-/* Existing App.css content */
+/* Import Syncfusion Material theme */
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
+/* Sidebar styling with glass effect */
 .sidebar {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(8px); /* Glass blur effect */
+  border-right: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  transition: all 0.3s ease; /* Smooth transitions */
+  z-index: 1000; /* Above main content */
 }
 
+/* Navigation items and navbar styling */
 .nav-item,
 .navbar {
-  z-index: 10000;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  z-index: 10000; /* High stacking order */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Glass blur effect */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Light shadow */
 }
 
+/* Responsive sidebar adjustments for smaller screens */
 @media screen and (max-width: 800px) {
   .sidebar {
-    z-index: 10000000;
+    z-index: 10000000; /* Very high stacking order on mobile */
   }
 }
 
+/* Syncfusion dialog and popup overrides */
 .e-dlg-center-center,
 .e-quick-popup-wrapper.e-device {
-  z-index: 1000000 !important;
+  z-index: 1000000 !important; /* Ensure above other elements */
 }
 
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 6px; /* Narrow scrollbar */
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #888, #ccc);
-  border-radius: 40px;
+  background: linear-gradient(45deg, #888, #ccc); /* Gray gradient */
+  border-radius: 40px; /* Rounded edges */
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: transparent; /* Transparent track */
 }
 
+/* Color picker preview styling */
 #preview {
   background: transparent
     url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
-    no-repeat;
-  display: inline-block;
-  height: 80px;
-  margin: 10px 0;
-  min-width: 300px;
-  max-width: 600px;
-  background: linear-gradient(45deg, #008000, #00a000);
+    no-repeat; /* Background image */
+  display: inline-block; /* Inline-block display */
+  height: 80px; /* Fixed height */
+  margin: 10px 0; /* Vertical spacing */
+  min-width: 300px; /* Minimum width */
+  max-width: 600px; /* Maximum width */
+  background: linear-gradient(45deg, #008000, #00a000); /* Green gradient */
 }
 
+/* Remove borders for input groups */
 .e-input-group:not(.e-float-icon-left),
 .e-input-group.e-success:not(.e-float-icon-left),
 .e-input-group.e-warning:not(.e-float-icon-left),
@@ -60,160 +67,177 @@
 .e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left),
 .e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left),
 .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
-  border: none;
+  border: none; /* Remove borders */
 }
 
+/* Profile button styling */
 .profile-button {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
+  backdrop-filter: blur(5px); /* Subtle blur */
+  border-radius: 12px; /* Rounded corners */
 }
 
+/* Active state for profile button */
 .profile-button.active {
-  transform: translateX(-20px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateX(-20px); /* Slide left */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
+/* User profile panel styling */
 .user-profile-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 300px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 10010;
-  transform: translateX(100%);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: fixed; /* Fix to viewport */
+  top: 0; /* Align to top */
+  right: 0; /* Align to right */
+  height: 100%; /* Full height */
+  width: 300px; /* Fixed width */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(12px); /* Glass blur effect */
+  border-left: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  z-index: 10010; /* Above navbar */
+  transform: translateX(100%); /* Hide off-screen */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
+/* Open state for user profile panel */
 .user-profile-panel.open {
-  transform: translateX(0);
-  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+  transform: translateX(0); /* Slide into view */
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15); /* Left shadow */
 }
 
+/* Close button styling */
 .close-btn {
-  margin: 1rem;
-  padding: 0.5rem 1rem;
-  background: linear-gradient(45deg, #e0e0e0, #ffffff);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  cursor: pointer;
-  position: relative;
-  z-index: 10011;
-  transition: all 0.3s ease;
+  margin: 1rem; /* Spacing */
+  padding: 0.5rem 1rem; /* Internal spacing */
+  background: linear-gradient(45deg, #e0e0e0, #ffffff); /* Light gradient */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  position: relative; /* For z-index */
+  z-index: 10011; /* Above panel */
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover effect for close button */
 .close-btn:hover {
-  background: linear-gradient(45deg, #ffffff, #e0e0e0);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
+  background: linear-gradient(45deg, #ffffff, #e0e0e0); /* Reverse gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transform: translateY(-2px); /* Slight lift */
 }
 
+/* Dashboard cards container */
 .dashboard-cards {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0.75rem;
-  overflow-x: auto;
-  padding: 0.75rem;
-  z-index: 100;
+  display: flex; /* Flexbox layout */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 0.75rem; /* Space between cards */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  padding: 0.75rem; /* Internal spacing */
+  z-index: 100; /* Above background */
 }
 
+/* Earning card styling */
 .earning-card {
-  flex: 0 0 256px;
-  min-width: 256px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 16px;
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 100;
+  flex: 0 0 256px; /* Fixed width */
+  min-width: 256px; /* Minimum width */
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Glass blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-radius: 16px; /* Rounded corners */
+  padding: 2rem 1.5rem 1.5rem 1.5rem; /* Internal spacing */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  z-index: 100; /* Above background */
 }
 
+/* Hover effect for earning card */
 .earning-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Stronger shadow */
 }
 
+/* Styling for other dashboard cards */
 .customers-card,
 .products-card,
 .sales-card,
 .refunds-card {
-  flex: 0 0 192px;
-  min-width: 192px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 16px;
-  padding: 1rem;
-  padding-top: 2.25rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 100;
+  flex: 0 0 192px; /* Fixed width */
+  min-width: 192px; /* Minimum width */
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Glass blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-radius: 16px; /* Rounded corners */
+  padding: 1rem; /* Internal spacing */
+  padding-top: 2.25rem; /* Extra top padding */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  z-index: 100; /* Above background */
 }
 
+/* Hover effect for other dashboard cards */
 .customers-card:hover,
 .products-card:hover,
 .sales-card:hover,
 .refunds-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Stronger shadow */
 }
 
+/* Button styling for dashboard cards */
 .earning-card button,
 .customers-card button,
 .products-card button,
 .sales-card button,
 .refunds-card button {
-  background: linear-gradient(45deg, #4a90e2, #50e3c2);
-  border: none;
-  border-radius: 12px;
-  padding: 0.75rem;
-  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #4a90e2, #50e3c2); /* Blue-green gradient */
+  border: none; /* Remove border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 0.75rem; /* Internal spacing */
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover effect for dashboard card buttons */
 .earning-card button:hover,
 .customers-card button:hover,
 .products-card button:hover,
 .sales-card button:hover,
 .refunds-card button:hover {
-  background: linear-gradient(45deg, #50e3c2, #4a90e2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+  background: linear-gradient(45deg, #50e3c2, #4a90e2); /* Reverse gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transform: scale(1.05); /* Slight scale up */
 }
 
+/* Custom button styling with bgColor */
 button[style*="bgColor"] {
-  background: linear-gradient(45deg, var(--bgColor), #ffffff);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  background: linear-gradient(45deg, var(--bgColor), #ffffff); /* Gradient with theme color */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-radius: 10px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover effect for custom buttons */
 button[style*="bgColor"]:hover {
-  background: linear-gradient(45deg, #ffffff, var(--bgColor));
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
+  background: linear-gradient(45deg, #ffffff, var(--bgColor)); /* Reverse gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transform: translateY(-2px); /* Slight lift */
 }
 
+/* Responsive adjustments for smaller screens */
 @media screen and (max-width: 800px) {
   .dashboard-cards {
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow cards to wrap */
   }
   .earning-card {
-    flex: 0 0 100%;
+    flex: 0 0 100%; /* Full width */
   }
   .customers-card,
   .products-card,
   .sales-card,
   .refunds-card {
-    flex: 0 0 45%;
+    flex: 0 0 45%; /* Two per row */
   }
 }
 
+/* Dark mode adjustments for components */
 .dark .sidebar,
 .dark .navbar,
 .dark .earning-card,
@@ -222,56 +246,60 @@ button[style*="bgColor"]:hover {
 .dark .sales-card,
 .dark .refunds-card,
 .dark .user-profile-panel {
-  background: rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3); /* Darker semi-transparent background */
+  border-color: rgba(255, 255, 255, 0.1); /* Lighter border */
 }
 
-/* New styles for Cart, Chat, Notification panels */
+/* Styling for cart, chat, and notification panels */
 .cart-panel,
 .chat-panel,
 .notification-panel {
-  position: fixed;
-  top: 60px; /* Below navbar */
-  right: 0;
-  width: 300px;
-  max-height: 400px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  position: fixed; /* Fix to viewport */
+  top: 60px; /* Position below navbar */
+  right: 0; /* Align to right */
+  width: 300px; /* Fixed width */
+  max-height: 400px; /* Limit height */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(12px); /* Glass blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 1.5rem; /* Internal spacing */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Subtle shadow */
   z-index: 10005; /* Below user-profile-panel, above dashboard cards */
-  overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
+  overflow-y: auto; /* Allow vertical scrolling */
+  transform: translateX(100%); /* Hide off-screen */
+  transition: transform 0.3s ease; /* Smooth transition */
 }
 
+/* Open state for panels */
 .cart-panel.open,
 .chat-panel.open,
 .notification-panel.open {
-  transform: translateX(0);
+  transform: translateX(0); /* Slide into view */
 }
 
-/* Offset panels when multiple are open */
+/* Offset panels when multiple are open to stack vertically */
 .cart-panel.open:nth-child(1),
 .chat-panel.open:nth-child(2),
 .notification-panel.open:nth-child(3) {
-  transform: translateX(0) translateY(calc(10px + 410px * (var(--panel-index, 0))));
-  --panel-index: 0;
+  transform: translateX(0) translateY(calc(10px + 410px * (var(--panel-index, 0)))); /* Stack panels */
+  --panel-index: 0; /* Default index */
 }
 
+/* Adjust index for chat panel */
 .chat-panel.open:nth-child(2) {
-  --panel-index: 1;
+  --panel-index: 1; /* Second panel offset */
 }
 
+/* Adjust index for notification panel */
 .notification-panel.open:nth-child(3) {
-  --panel-index: 2;
+  --panel-index: 2; /* Third panel offset */
 }
 
+/* Dark mode styling for panels */
 .dark .cart-panel,
 .dark .chat-panel,
 .dark .notification-panel {
-  background: rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3); /* Darker semi-transparent background */
+  border-color: rgba(255, 255, 255, 0.1); /* Lighter border */
 }

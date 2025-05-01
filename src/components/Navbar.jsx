@@ -10,7 +10,9 @@ import { Cart, Chat, Notification, UserProfile } from '.';
 import PanelPortal from './PanelPortal';
 import { useStateContext } from '../contexts/ContextProvider';
 
+// NavButton component for reusable navigation buttons with tooltips
 const NavButton = ({ title, customFunc, icon, color, dotColor, showDot, className }) => (
+  // TooltipComponent wraps button to show title on hover
   <TooltipComponent content={title} position="BottomCenter">
     <button
       type="button"
@@ -18,6 +20,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor, showDot, classNam
       style={{ color }}
       className={`relative text-xl rounded-full p-3 hover:bg-light-gray ${className || ''}`}
     >
+      {/* Show notification dot if showDot is true */}
       {showDot && (
         <span
           style={{ background: dotColor }}
@@ -29,7 +32,9 @@ const NavButton = ({ title, customFunc, icon, color, dotColor, showDot, classNam
   </TooltipComponent>
 );
 
+// Navbar component manages navigation and panel toggling
 const Navbar = () => {
+  // Destructure context values for state management
   const {
     activeMenu,
     setActiveMenu,
@@ -43,23 +48,31 @@ const Navbar = () => {
     hasNewNotifications,
   } = useStateContext();
 
+  // Effect to handle screen size changes and initialize screenSize
   useEffect(() => {
+    // Update screenSize on window resize
     const handleResize = () => setScreenSize(window.innerWidth);
     window.addEventListener('resize', handleResize);
-    handleResize();
+    handleResize(); // Initial call to set screenSize
+    // Cleanup event listener on component unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Effect to disable activeMenu on small screens
   useEffect(() => {
+    // Log screenSize and activeMenu for debugging
     console.log('Navbar screenSize:', screenSize, 'activeMenu:', activeMenu);
+    // Disable menu if screen size is 900px or less and menu is active
     if (screenSize <= 900 && activeMenu) {
       setActiveMenu(false);
     }
-  }, [screenSize]);
+  }, [screenSize, activeMenu, setActiveMenu]);
 
   return (
     <>
+      {/* Navbar container with flex layout and padding */}
       <div className="flex justify-between p-2 relative navbar">
+        {/* Menu toggle button */}
         <NavButton
           title="Menu"
           customFunc={() => setActiveMenu((prev) => !prev)}
@@ -67,13 +80,16 @@ const Navbar = () => {
           icon={<AiOutlineMenu />}
           className="menu-toggle"
         />
+        {/* Right-side navigation buttons */}
         <div className="flex gap-3">
+          {/* Cart button */}
           <NavButton
             title="Cart"
             customFunc={() => handleClick('cart')}
             color={currentColor}
             icon={<FiShoppingCart />}
           />
+          {/* Chat button with optional notification dot */}
           <NavButton
             title="Chat"
             customFunc={() => handleClick('chat')}
@@ -82,6 +98,7 @@ const Navbar = () => {
             dotColor="#03C9D7"
             showDot={hasNewMessages}
           />
+          {/* Notifications button with optional notification dot */}
           <NavButton
             title="Notifications"
             customFunc={() => handleClick('notification')}
@@ -90,6 +107,7 @@ const Navbar = () => {
             dotColor="#03C9D7"
             showDot={hasNewNotifications}
           />
+          {/* Profile button with avatar and dropdown */}
           <TooltipComponent content="Profile" position="BottomCenter">
             <div
               className={`flex items-center gap-2 cursor-pointer p-2 hover:bg-light-gray rounded-lg profile-button ${
@@ -97,18 +115,23 @@ const Navbar = () => {
               }`}
               onClick={() => handleClick('userProfile')}
             >
+              {/* User avatar image */}
               <img className="rounded-full w-8 h-8" src={avatar} alt="profile" />
+              {/* User greeting text */}
               <p>
                 <span className="text-gray-400 text-14">Hello, </span>
                 <span className="text-gray-400 font-bold ml-1 text-14">John 👋</span>
               </p>
+              {/* Dropdown arrow icon */}
               <MdKeyboardArrowDown className="text-gray-400 text-14" />
             </div>
           </TooltipComponent>
         </div>
       </div>
 
+      {/* Cart panel portal */}
       <PanelPortal isOpen={isClicked.cart} className={`cart-panel ${isClicked.cart ? 'open' : ''}`}>
+        {/* Close button for cart panel */}
         <button
           type="button"
           className="close-btn"
@@ -118,7 +141,9 @@ const Navbar = () => {
         </button>
         <Cart />
       </PanelPortal>
+      {/* Chat panel portal */}
       <PanelPortal isOpen={isClicked.chat} className={`chat-panel ${isClicked.chat ? 'open' : ''}`}>
+        {/* Close button for chat panel */}
         <button
           type="button"
           className="close-btn"
@@ -128,7 +153,9 @@ const Navbar = () => {
         </button>
         <Chat />
       </PanelPortal>
+      {/* Notification panel portal */}
       <PanelPortal isOpen={isClicked.notification} className={`notification-panel ${isClicked.notification ? 'open' : ''}`}>
+        {/* Close button for notification panel */}
         <button
           type="button"
           className="close-btn"
@@ -138,7 +165,9 @@ const Navbar = () => {
         </button>
         <Notification />
       </PanelPortal>
+      {/* User profile panel portal */}
       <PanelPortal isOpen={isClicked.userProfile} className={`user-profile-panel ${isClicked.userProfile ? 'open' : ''}`}>
+        {/* Close button for user profile panel */}
         <button
           type="button"
           className="close-btn"
@@ -152,4 +181,5 @@ const Navbar = () => {
   );
 };
 
+// Export the Navbar component as default
 export default Navbar;

@@ -1,174 +1,181 @@
+/* Import Syncfusion Material theme */
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
-/* Global background with gradient */
+/* Global body styling with gradient background */
 body {
-  background: linear-gradient(135deg, #A8E6CF 0%, #D7BDE2 100%);
-  min-height: 100vh;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden;
-  box-sizing: border-box;
+  background: linear-gradient(135deg, #A8E6CF 0%, #D7BDE2 100%); /* Light mode gradient */
+  min-height: 100vh; /* Ensure full viewport height */
+  margin: 0 !important; /* Remove default margins */
+  padding: 0 !important; /* Remove default padding */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  box-sizing: border-box; /* Include padding/border in element size */
 }
 
+/* Dark mode body styling */
 .dark body {
-  background: linear-gradient(135deg, #2D2D2D 0%, #4B0082 100%);
+  background: linear-gradient(135deg, #2D2D2D 0%, #4B0082 100%); /* Dark mode gradient */
 }
 
-/* Container to manage sidebar and main content */
+/* Container for sidebar and main content */
 .app-container {
-  display: flex !important;
-  min-height: 100vh;
-  position: relative;
-  padding: 0 !important;
-  margin: 0 !important;
+  display: flex !important; /* Use flexbox for layout */
+  min-height: 100vh; /* Full viewport height */
+  position: relative; /* Enable positioning of children */
+  padding: 0 !important; /* Remove padding */
+  margin: 0 !important; /* Remove margins */
 }
 
-/* Sidebar with glass effect and pastel border */
+/* Sidebar styling with glass effect */
 .sidebar {
-  width: 288px !important; /* Match w-72 (18rem = 288px) */
-  min-width: 288px !important;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(15px);
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
-  height: 100vh !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  padding: 1.5rem !important;
-  z-index: 1000 !important;
-  transition: width 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
-  overflow-y: auto;
-  box-sizing: border-box !important;
+  width: 288px !important; /* Fixed width matching w-72 (18rem) */
+  min-width: 288px !important; /* Prevent shrinking */
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  backdrop-filter: blur(15px); /* Glass effect */
+  border-right: 1px solid rgba(255, 255, 255, 0.3); /* Pastel border */
+  height: 100vh !important; /* Full viewport height */
+  position: fixed !important; /* Fix to viewport */
+  top: 0 !important; /* Align to top */
+  left: 0 !important; /* Align to left */
+  padding: 1.5rem !important; /* Internal spacing */
+  z-index: 1000 !important; /* Ensure above main content */
+  transition: width 0.3s ease, padding 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+  overflow-y: auto; /* Allow vertical scrolling */
+  box-sizing: border-box !important; /* Include padding/border in size */
 }
 
+/* Sidebar when collapsed */
 .sidebar.closed {
-  width: 0 !important;
-  min-width: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  background: transparent !important;
-  opacity: 0 !important;
-  border-right: none !important;
-  display: none !important; /* Ensure the sidebar fully collapses */
+  width: 0 !important; /* Collapse width */
+  min-width: 0 !important; /* Allow full collapse */
+  padding: 0 !important; /* Remove padding */
+  overflow: hidden !important; /* Hide content */
+  background: transparent !important; /* Remove background */
+  opacity: 0 !important; /* Fade out */
+  border-right: none !important; /* Remove border */
+  display: none !important; /* Hide completely */
 }
 
+/* Sidebar when open */
 .sidebar.open {
-  width: 288px !important;
-  min-width: 288px !important;
-  opacity: 1 !important;
-  display: block !important; /* Ensure visibility when open */
+  width: 288px !important; /* Restore width */
+  min-width: 288px !important; /* Ensure minimum width */
+  opacity: 1 !important; /* Fully visible */
+  display: block !important; /* Ensure visibility */
 }
 
+/* Hide sidebar content when closed */
 .sidebar.closed .sidebar-content {
-  display: none !important;
+  display: none !important; /* Hide content */
 }
 
+/* Sidebar content styling */
 .sidebar-content {
-  display: flex !important;
-  flex-direction: column !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  transition: opacity 0.3s ease;
+  display: flex !important; /* Flexbox layout */
+  flex-direction: column !important; /* Vertical arrangement */
+  opacity: 1 !important; /* Fully visible */
+  visibility: visible !important; /* Ensure visibility */
+  transition: opacity 0.3s ease; /* Smooth opacity transition */
 }
 
-/* Ensure sidebar content is visible when open */
+/* Ensure sidebar children are visible when open */
 .sidebar.open * {
-  opacity: 1 !important;
-  visibility: visible !important;
+  opacity: 1 !important; /* Fully visible */
+  visibility: visible !important; /* Ensure visibility */
 }
 
-/* Sidebar header */
+/* Sidebar header spacing */
 .sidebar .flex.justify-between {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; /* Space below header */
 }
 
+/* Sidebar logo and title styling */
 .sidebar .items-center.gap-3 {
-  color: #1a202c;
-  font-size: 1.25rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
+  color: #1a202c; /* Dark text */
+  font-size: 1.25rem; /* Large font */
+  font-weight: 800; /* Extra bold */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center vertically */
 }
 
-/* Sidebar menu */
+/* Sidebar menu styling */
 .sidebar .mt-10 {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Vertical arrangement */
+  gap: 1rem; /* Space between items */
 }
 
+/* Sidebar section titles */
 .sidebar .text-gray-400 {
-  color: #4a5568;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  margin: 0.75rem 0;
+  color: #4a5568; /* Gray color */
+  font-size: 0.75rem; /* Small font */
+  text-transform: uppercase; /* Uppercase text */
+  margin: 0.75rem 0; /* Vertical spacing */
 }
 
-/* NavLink styling */
+/* NavLink styling for sidebar links */
 .sidebar .flex.items-center {
-  color: #1a202c;
-  font-size: 0.9rem;
-  padding: 0.75rem;
-  margin: 0.5rem 0;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  color: #1a202c; /* Dark text */
+  font-size: 0.9rem; /* Slightly smaller font */
+  padding: 0.75rem; /* Internal spacing */
+  margin: 0.5rem 0; /* Vertical spacing */
+  border-radius: 0.5rem; /* Rounded corners */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center vertically */
+  gap: 1rem; /* Space between icon and text */
+  text-decoration: none; /* Remove underline */
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover effect for sidebar links */
 .sidebar .flex.items-center:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3); /* Light background */
 }
 
+/* Active link styling */
 .sidebar .flex.items-center.active {
-  background: var(--currentColor, #03C9D7);
-  color: #fff;
+  background: var(--currentColor, #03C9D7); /* Theme color */
+  color: #fff; /* White text */
 }
 
-/* Dark mode sidebar */
+/* Dark mode sidebar styling */
 .dark .sidebar {
-  background: rgba(0, 0, 0, 0.9);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
+  border-color: rgba(255, 255, 255, 0.2); /* Light border */
 }
 
+/* Dark mode text colors */
 .dark .sidebar .items-center.gap-3,
 .dark .sidebar .flex.items-center,
 .dark .sidebar .text-gray-400 {
-  color: #e2e8f0;
+  color: #e2e8f0; /* Light gray text */
 }
 
-.dark .sidebar .flex.items-center {
-  color: #e2e8f0;
-}
-
-/* Main content adjusts to sidebar width */
+/* Main content styling */
 .main-content {
-  margin-left: 289px !important; /* Match sidebar width (288px) + border (1px) */
-  transition: margin-left 0.3s ease;
-  box-sizing: border-box !important;
-  padding: 0 !important;
-  width: calc(100% - 289px) !important;
-  min-height: 100vh !important;
-  margin-left: -3px !important; /* Increase overlap to close the gap */
+  margin-left: 289px !important; /* Offset for sidebar width + border */
+  transition: margin-left 0.3s ease; /* Smooth transition */
+  box-sizing: border-box !important; /* Include padding/border */
+  padding: 0 !important; /* Remove padding */
+  width: calc(100% - 289px) !important; /* Adjust width */
+  min-height: 100vh !important; /* Full height */
+  margin-left: -3px !important; /* Close gap with sidebar */
 }
 
 /* Main content when sidebar is collapsed */
 .main-content.sidebar-collapsed {
-  margin-left: 0 !important;
-  width: 100% !important;
-  transition: margin-left 0.3s ease, width 0.3s ease;
+  margin-left: 0 !important; /* No offset */
+  width: 100% !important; /* Full width */
+  transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transitions */
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for smaller screens */
 @media screen and (max-width: 900px) {
   .sidebar.open {
-    width: 288px !important;
-    min-width: 288px !important;
+    width: 288px !important; /* Maintain width */
+    min-width: 288px !important; /* Ensure minimum width */
   }
   .sidebar.closed {
-    width: 0 !important;
+    width: 0 !important; /* Collapse fully */
     min-width: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
@@ -177,124 +184,127 @@ body {
     display: none !important;
   }
   .main-content {
-    margin-left: 0 !important;
-    width: 100% !important;
+    margin-left: 0 !important; /* No offset */
+    width: 100% !important; /* Full width */
   }
 }
 
-/* Navbar with gradient and glass effect */
+/* Navbar styling with glass effect */
 .navbar {
-  z-index: 5000 !important;
-  background: linear-gradient(45deg, rgba(75, 0, 130, 0.2), rgba(0, 196, 180, 0.2));
-  backdrop-filter: blur(12px);
-  box-shadow: none;
-  border: none;
-  position: sticky !important;
-  top: 0 !important;
-  left: 289px !important;
-  right: 0 !important;
-  width: auto !important;
-  transition: left 0.3s ease, width 0.3s ease;
-  box-sizing: border-box !important;
-  padding: 0.5rem !important;
+  z-index: 5000 !important; /* High stacking order */
+  background: linear-gradient(45deg, rgba(75, 0, 130, 0.2), rgba(0, 196, 180, 0.2)); /* Gradient */
+  backdrop-filter: blur(12px); /* Glass effect */
+  box-shadow: none; /* Remove shadow */
+  border: none; /* Remove border */
+  position: sticky !important; /* Stick to top */
+  top: 0 !important; /* Align to top */
+  left: 289px !important; /* Offset for sidebar */
+  right: 0 !important; /* Extend to right */
+  width: auto !important; /* Auto width */
+  transition: left 0.3s ease, width 0.3s ease; /* Smooth transitions */
+  box-sizing: border-box !important; /* Include padding/border */
+  padding: 0.5rem !important; /* Internal spacing */
 }
 
 /* Navbar when sidebar is collapsed */
 .main-content.sidebar-collapsed .navbar {
-  left: 0 !important;
-  width: 100% !important;
-  right: 0 !important;
+  left: 0 !important; /* Align to left */
+  width: 100% !important; /* Full width */
+  right: 0 !important; /* Extend to right */
 }
 
 /* Remove focus outline on navbar buttons */
 .navbar button:focus {
-  outline: none;
+  outline: none; /* Improve accessibility */
 }
 
-/* NavButton for toggle button */
+/* Menu toggle button styling */
 .navbar button.relative.text-xl.menu-toggle {
-  transition: all 0.3s ease;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  padding: 0.75rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5100;
-  visibility: visible !important;
-  opacity: 1 !important;
+  transition: all 0.3s ease; /* Smooth transitions */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)); /* Glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Light border */
+  border-radius: 50%; /* Circular shape */
+  padding: 0.75rem; /* Internal spacing */
+  display: inline-flex; /* Flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  z-index: 5100; /* Above other elements */
+  visibility: visible !important; /* Ensure visibility */
+  opacity: 1 !important; /* Fully opaque */
 }
 
+/* Hover effect for menu toggle */
 .navbar button.relative.text-xl.menu-toggle:hover {
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5));
-  transform: scale(1.1);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5)); /* Brighter glass effect */
+  transform: scale(1.1); /* Slight scale up */
 }
 
-/* Other NavButtons (cart, chat, notifications) */
+/* Styling for other navbar buttons (cart, chat, notifications) */
 .navbar button.relative.text-xl:not(.menu-toggle) {
-  transition: all 0.3s ease;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  padding: 0.75rem;
-  margin-right: 0.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  transition: all 0.3s ease; /* Smooth transitions */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)); /* Glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Light border */
+  border-radius: 50%; /* Circular shape */
+  padding: 0.75rem; /* Internal spacing */
+  margin-right: 0.5rem; /* Space between buttons */
+  display: inline-flex; /* Flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
 }
 
+/* Hover effect for other navbar buttons */
 .navbar button.relative.text-xl:not(.menu-toggle):hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5));
+  transform: scale(1.1); /* Slight scale up */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5)); /* Brighter glass effect */
 }
 
-/* Notification dot */
+/* Notification dot styling */
 .navbar button span {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover effect for notification dot */
 .navbar button:hover span {
-  box-shadow: 0 0 8px rgba(3, 201, 215, 0.8);
+  box-shadow: 0 0 8px rgba(3, 201, 215, 0.8); /* Glowing effect */
 }
 
-/* Flex container for right-side buttons */
+/* Flex container for right-side navbar buttons */
 .navbar .flex.gap-3 {
-  gap: 0.5rem;
-  align-items: center;
+  gap: 0.5rem; /* Space between buttons */
+  align-items: center; /* Center vertically */
 }
 
-/* Syncfusion overrides */
+/* Syncfusion dialog and popup overrides */
 .e-dlg-center-center,
 .e-quick-popup-wrapper.e-device {
-  z-index: 1000000 !important;
+  z-index: 1000000 !important; /* Ensure above other elements */
 }
 
-/* Scrollbar styling */
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 8px; /* Scrollbar width */
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #00C4B4, #FF6B6B);
-  border-radius: 40px;
+  background: linear-gradient(45deg, #00C4B4, #FF6B6B); /* Gradient thumb */
+  border-radius: 40px; /* Rounded edges */
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: transparent; /* Transparent track */
 }
 
-/* Color picker preview */
+/* Color picker preview styling */
 #preview {
-  background: transparent url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png') no-repeat;
-  display: inline-block;
-  height: 80px;
-  margin: 10px 0;
-  min-width: 300px;
-  max-width: 600px;
-  background: linear-gradient(45deg, #00C4B4, #FF6B6B);
+  background: transparent url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png') no-repeat; /* Background image */
+  display: inline-block; /* Inline-block display */
+  height: 80px; /* Fixed height */
+  margin: 10px 0; /* Vertical spacing */
+  min-width: 300px; /* Minimum width */
+  max-width: 600px; /* Maximum width */
+  background: linear-gradient(45deg, #00C4B4, #FF6B6B); /* Gradient background */
 }
 
-/* Input group styling */
+/* Remove borders for input groups */
 .e-input-group:not(.e-float-icon-left),
 .e-input-group.e-success:not(.e-float-icon-left),
 .e-input-group.e-warning:not(.e-float-icon-left),
@@ -303,241 +313,255 @@ body {
 .e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left),
 .e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left),
 .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
-  border: none;
+  border: none; /* Remove borders */
 }
 
-/* Profile button with enhanced clarity */
+/* Profile button styling */
 .profile-button {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.35));
-  backdrop-filter: blur(8px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  margin-right: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.35)); /* Glass effect */
+  backdrop-filter: blur(8px); /* Subtle blur */
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Light border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Internal spacing */
+  margin-right: 1rem; /* Space from edge */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center vertically */
+  gap: 0.5rem; /* Space between elements */
 }
 
+/* Active state for profile button */
 .profile-button.active {
-  transform: translateX(-20px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.45));
+  transform: translateX(-20px); /* Slide left */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.45)); /* Brighter glass effect */
 }
 
+/* Profile button image styling */
 .profile-button img {
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
 }
 
+/* Prevent text wrapping in profile button */
 .profile-button p {
-  white-space: nowrap;
+  white-space: nowrap; /* Keep text on single line */
 }
 
-/* Panel container */
+/* Panel container styling */
 .panel-container {
-  z-index: 999999;
+  z-index: 999999; /* High stacking order */
 }
 
-/* Panels with enhanced glass effect */
+/* Styling for side panels (user profile, cart, chat, notification) */
 .user-profile-panel,
 .cart-panel,
 .chat-panel,
 .notification-panel {
-  position: fixed !important;
-  top: 0 !important;
-  right: 0 !important;
-  height: 100% !important;
-  width: 280px !important;
-  max-width: 100% !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
-  backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
-  z-index: 999999 !important;
-  transform: translateX(100%);
-  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
-  padding: 2rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1rem !important;
-  isolation: isolate;
-  opacity: 0;
-  border-image: linear-gradient(45deg, #FF6B6B, #00C4B4) 1;
+  position: fixed !important; /* Fix to viewport */
+  top: 0 !important; /* Align to top */
+  right: 0 !important; /* Align to right */
+  height: 100% !important; /* Full height */
+  width: 280px !important; /* Fixed width */
+  max-width: 100% !important; /* Responsive max width */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1)); /* Glass effect */
+  backdrop-filter: blur(20px); /* Strong blur */
+  border-left: 1px solid rgba(255, 255, 255, 0.4); /* Light border */
+  z-index: 999999 !important; /* Very high stacking order */
+  transform: translateX(100%); /* Hide off-screen */
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease; /* Smooth transitions */
+  padding: 2rem !important; /* Internal spacing */
+  display: flex !important; /* Flexbox layout */
+  flex-direction: column !important; /* Vertical arrangement */
+  gap: 1rem !important; /* Space between elements */
+  isolation: isolate; /* Prevent stacking context issues */
+  opacity: 0; /* Initially invisible */
+  border-image: linear-gradient(45deg, #FF6B6B, #00C4B4) 1; /* Gradient border */
 }
 
+/* Open state for panels */
 .user-profile-panel.open,
 .cart-panel.open,
 .chat-panel.open,
 .notification-panel.open {
-  transform: translateX(0) !important;
-  opacity: 1 !important;
-  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+  transform: translateX(0) !important; /* Slide into view */
+  opacity: 1 !important; /* Fully visible */
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2); /* Left shadow */
 }
 
-/* Close button with vibrant gradient */
+/* Close button styling */
 .close-btn {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  background: linear-gradient(45deg, #FF6B6B, #00C4B4);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 1rem;
-  color: #FFFFFF;
-  z-index: 9999999;
-  transition: all 0.3s ease;
+  width: 100%; /* Full width */
+  padding: 0.75rem 1rem; /* Internal spacing */
+  background: linear-gradient(45deg, #FF6B6B, #00C4B4); /* Vibrant gradient */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  text-align: center; /* Center text */
+  font-size: 1rem; /* Font size */
+  color: #FFFFFF; /* White text */
+  z-index: 9999999; /* Extremely high stacking order */
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover effect for close button */
 .close-btn:hover {
-  background: linear-gradient(45deg, #00C4B4, #FF6B6B);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
+  background: linear-gradient(45deg, #00C4B4, #FF6B6B); /* Reverse gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  transform: translateY(-2px); /* Slight lift */
 }
 
-/* Dashboard cards */
+/* Dashboard cards container */
 .dashboard-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-  z-index: 10;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  display: flex; /* Flexbox layout */
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 1rem; /* Space between cards */
+  padding: 1rem; /* Internal spacing */
+  z-index: 10; /* Above background */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding/border */
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+/* Styling for dashboard cards */
 .earning-card,
 .customers-card,
 .products-card,
 .sales-card,
 .refunds-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 10;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1)); /* Glass effect */
+  backdrop-filter: blur(15px); /* Blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Light border */
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  z-index: 10; /* Above background */
+  position: relative; /* For pseudo-elements */
+  overflow: hidden; /* Hide overflow */
 }
 
+/* Earning card specific styling */
 .earning-card {
-  flex: 0 0 256px;
-  min-width: 256px;
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  flex: 0 0 256px; /* Fixed width */
+  min-width: 256px; /* Minimum width */
+  padding: 2rem 1.5rem 1.5rem 1.5rem; /* Internal spacing */
 }
 
+/* Other dashboard cards styling */
 .customers-card,
 .products-card,
 .sales-card,
 .refunds-card {
-  flex: 0 0 192px;
-  min-width: 192px;
-  padding: 1rem;
-  padding-top: 2.25rem;
+  flex: 0 0 192px; /* Fixed width */
+  min-width: 192px; /* Minimum width */
+  padding: 1rem; /* Internal spacing */
+  padding-top: 2.25rem; /* Extra top padding */
 }
 
+/* Top border effect for cards */
 .earning-card::before,
 .customers-card::before,
 .products-card::before,
 .sales-card::before,
 .refunds-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
+  content: ''; /* Empty content */
+  position: absolute; /* Position at top */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  width: 100%; /* Full width */
+  height: 4px; /* Thin border */
 }
 
+/* Earning card top border */
 .earning-card::before {
-  background: linear-gradient(90deg, #4B0082, #00C4B4);
+  background: linear-gradient(90deg, #4B0082, #00C4B4); /* Gradient */
 }
 
+/* Other cards top border */
 .customers-card::before,
 .products-card::before,
 .sales-card::before,
 .refunds-card::before {
-  background: linear-gradient(90deg, #FF6B6B, #D7BDE2);
+  background: linear-gradient(90deg, #FF6B6B, #D7BDE2); /* Gradient */
 }
 
+/* Hover effect for cards */
 .earning-card:hover,
 .customers-card:hover,
 .products-card:hover,
 .sales-card:hover,
 .refunds-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow */
 }
 
-/* Card buttons */
+/* Card button styling */
 .earning-card button,
 .customers-card button,
 .products-card button,
 .sales-card button,
 .refunds-card button {
-  background: linear-gradient(45deg, #4B0082, #00C4B4);
-  border: none;
-  border-radius: 12px;
-  padding: 0.75rem;
-  color: #FFFFFF;
-  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #4B0082, #00C4B4); /* Gradient */
+  border: none; /* Remove border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 0.75rem; /* Internal spacing */
+  color: #FFFFFF; /* White text */
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover effect for card buttons */
 .earning-card button:hover,
 .customers-card button:hover,
 .products-card button:hover,
 .sales-card button:hover,
 .refunds-card button:hover {
-  background: linear-gradient(45deg, #00C4B4, #4B0082);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transform: scale(1.05);
+  background: linear-gradient(45deg, #00C4B4, #4B0082); /* Reverse gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  transform: scale(1.05); /* Slight scale up */
 }
 
-/* Custom buttons with bgColor */
+/* Custom button styling with bgColor */
 button[style*="bgColor"] {
-  background: linear-gradient(45deg, var(--bgColor), #FFFFFF);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  color: #FFFFFF;
-  transition: all 0.3s ease;
+  background: linear-gradient(45deg, var(--bgColor), #FFFFFF); /* Gradient with theme color */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+  border-radius: 10px; /* Rounded corners */
+  color: #FFFFFF; /* White text */
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover effect for custom buttons */
 button[style*="bgColor"]:hover {
-  background: linear-gradient(45deg, #FFFFFF, var(--bgColor));
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
+  background: linear-gradient(45deg, #FFFFFF, var(--bgColor)); /* Reverse gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  transform: translateY(-2px); /* Slight lift */
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for smaller screens */
 @media screen and (max-width: 800px) {
   .dashboard-cards {
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow cards to wrap */
   }
   .earning-card {
-    flex: 0 0 100%;
+    flex: 0 0 100%; /* Full width */
   }
   .customers-card,
   .products-card,
   .sales-card,
   .refunds-card {
-    flex: 0 0 45%;
+    flex: 0 0 45%; /* Two per row */
   }
   .user-profile-panel,
   .cart-panel,
   .chat-panel,
   .notification-panel {
-    width: 100% !important;
-    max-width: none !important;
+    width: 100% !important; /* Full width */
+    max-width: none !important; /* Remove max-width constraint */
   }
   .profile-button {
-    margin-right: 0.5rem;
+    margin-right: 0.5rem; /* Adjust spacing */
   }
 }
 
-/* Dark mode adjustments */
+/* Dark mode adjustments for components */
 .dark .sidebar,
 .dark .navbar,
 .dark .earning-card,
@@ -549,55 +573,62 @@ button[style*="bgColor"]:hover {
 .dark .cart-panel,
 .dark .chat-panel,
 .dark .notification-panel {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
-  border-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)); /* Darker glass effect */
+  border-color: rgba(255, 255, 255, 0.2); /* Light border */
 }
 
+/* Dark mode button styling */
 .dark .close-btn,
 .dark .earning-card button,
 .dark .customers-card button,
 .dark .products-card button,
 .dark .sales-card button,
 .dark .refunds-card button {
-  background: linear-gradient(45deg, #FF6B6B, #4B0082);
+  background: linear-gradient(45deg, #FF6B6B, #4B0082); /* Dark mode gradient */
 }
 
+/* Dark mode button hover effect */
 .dark .close-btn:hover,
 .dark .earning-card button:hover,
 .dark .customers-card button:hover,
 .dark .products-card button:hover,
 .dark .sales-card button:hover,
 .dark .refunds-card button:hover {
-  background: linear-gradient(45deg, #4B0082, #FF6B6B);
+  background: linear-gradient(45deg, #4B0082, #FF6B6B); /* Reverse gradient */
 }
 
+/* Dark mode top border for earning card */
 .dark .earning-card::before {
-  background: linear-gradient(90deg, #4B0082, #FF6B6B);
+  background: linear-gradient(90deg, #4B0082, #FF6B6B); /* Gradient */
 }
 
+/* Dark mode top border for other cards */
 .dark .customers-card::before,
 .dark .products-card::before,
 .dark .sales-card::before,
 .dark .refunds-card::before {
-  background: linear-gradient(90deg, #00C4B4, #D7BDE2);
+  background: linear-gradient(90deg, #00C4B4, #D7BDE2); /* Gradient */
 }
 
 /* Override potential App.css styles */
 .bg-main-bg,
 .dark\:bg-main-dark-bg {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.main-content {
-  position: absolute !important;
-  top: 0 !important;
-  left: 289px !important;
-  margin-left: 0 !important;
-  width: calc(100% - 289px) !important;
-  min-height: 100vh !important;
+  padding: 0 !important; /* Remove padding */
+  margin: 0 !important; /* Remove margins */
 }
 
+/* Main content positioning */
+.main-content {
+  position: absolute !important; /* Absolute positioning */
+  top: 0 !important; /* Align to top */
+  left: 289px !important; /* Offset for sidebar */
+  margin-left: 0 !important; /* Remove margin */
+  width: calc(100% - 289px) !important; /* Adjust width */
+  min-height: 100vh !important; /* Full height */
+}
+
+/* Main content when sidebar is collapsed */
 .main-content.sidebar-collapsed {
-  left: 0 !important;
-  width: 100% !important;
+  left: 0 !important; /* Align to left */
+  width: 100% !important; /* Full width */
 }
