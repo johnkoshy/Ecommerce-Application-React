@@ -10,13 +10,13 @@ import { Cart, Chat, Notification, UserProfile } from '.';
 import PanelPortal from './PanelPortal';
 import { useStateContext } from '../contexts/ContextProvider';
 
-const NavButton = ({ title, customFunc, icon, color, dotColor, showDot }) => (
+const NavButton = ({ title, customFunc, icon, color, dotColor, showDot, className }) => (
   <TooltipComponent content={title} position="BottomCenter">
     <button
       type="button"
       onClick={customFunc}
       style={{ color }}
-      className="relative text-xl rounded-full p-3 hover:bg-light-gray bg-gradient-to-r from-gray-100 to-gray-200"
+      className={`relative text-xl rounded-full p-3 hover:bg-light-gray ${className || ''}`}
     >
       {showDot && (
         <span
@@ -51,10 +51,9 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (screenSize <= 900) {
+    console.log('Navbar screenSize:', screenSize, 'activeMenu:', activeMenu);
+    if (screenSize <= 900 && activeMenu) {
       setActiveMenu(false);
-    } else {
-      setActiveMenu(true);
     }
   }, [screenSize]);
 
@@ -63,9 +62,10 @@ const Navbar = () => {
       <div className="flex justify-between p-2 relative navbar">
         <NavButton
           title="Menu"
-          customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+          customFunc={() => setActiveMenu((prev) => !prev)}
           color={currentColor}
           icon={<AiOutlineMenu />}
+          className="menu-toggle"
         />
         <div className="flex gap-3">
           <NavButton
