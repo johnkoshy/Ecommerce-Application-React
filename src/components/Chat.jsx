@@ -6,7 +6,7 @@ const Chat = () => {
   // Access setHasNewMessages from context to update message status
   const { setHasNewMessages } = useStateContext();
   // Placeholder array for messages; replace with actual data from state or API
-  const Inglis = [];
+  const messages = [];
 
   // Effect to update hasNewMessages based on messages array length
   useEffect(() => {
